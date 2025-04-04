@@ -5,7 +5,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import SignUpForm, CommentForm, PostForm, UserUpdateForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
-from django.db.models import Q  # Import Q for complex queries
+from django.db.models import Q  # Imported Q for complex queries
 from django.http import HttpResponseForbidden
 
 
@@ -35,7 +35,7 @@ def post_list(request):
     else:
         posts = Post.objects.all().order_by('-created_at')
     
-    paginator = Paginator(posts, 5)  # Show 5 posts per page
+    paginator = Paginator(posts, 5)  # Shows 5 posts per page
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     
@@ -105,7 +105,6 @@ def profile(request):
         form = UserUpdateForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            # Optionally, you can add a success message here
             return redirect('profile')
     else:
         form = UserUpdateForm(instance=user)

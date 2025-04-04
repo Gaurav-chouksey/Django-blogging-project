@@ -1,5 +1,3 @@
-# blog/forms.py
-
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -17,7 +15,7 @@ class SignUpForm(UserCreationForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'content', 'category', 'image']  # include the image field
+        fields = ['title', 'content', 'category', 'image']
 
 
 class CommentForm(forms.ModelForm):
